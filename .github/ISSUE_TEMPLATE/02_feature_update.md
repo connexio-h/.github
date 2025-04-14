@@ -1,6 +1,6 @@
 ---
 name: Feature Update
-about: Feature Update
+about: Request new feature or update
 title: ''
 labels: [ "kind/enhancement" ]
 assignees: ''

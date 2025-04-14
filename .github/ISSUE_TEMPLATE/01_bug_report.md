@@ -1,6 +1,6 @@
 ---
 name: Bug Report
-about: Bug Report
+about: Something that isn't working properly
 title: ''
 labels: [ "kind/bug" ]
 assignees: ''
