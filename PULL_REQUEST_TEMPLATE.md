@@ -8,7 +8,7 @@
 
 [comment]: # "관련된 링크를 모두 작성합니다. 만약 존재하지 않는다면, 해당 줄을 제거해 주세요."
 
-- [Jira Ticket](여기에 JIRA 티켓 링크를 작성합니다.)
+- [Jira Ticket](https://connexioh.atlassian.net/browse/티켓_ID)
 
 # Updates
 
