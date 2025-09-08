@@ -16,7 +16,7 @@
 
 - 
 
-## Copilot Sumamry
+## Copilot Summary
 
 [comment]: # "Copilot을 이용하여 요약을 추가합니다."
 
