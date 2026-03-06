@@ -8,13 +8,8 @@
 
 [comment]: # "관련된 링크를 모두 작성합니다. 만약 존재하지 않는다면, 해당 줄을 제거해 주세요."
 
-- [Jira Ticket](https://connexioh.atlassian.net/browse/티켓_ID)
-
-# Updates
-
-[comment]: # "변경 사항을 모두 작성합니다."
-
-- 
+- Jira 티켓 링크
+  - https://connexioh.atlassian.net/browse/티켓_ID
 
 ## Copilot Summary
 
@@ -30,12 +25,11 @@
 
 # Checklist
 
-- [ ] PR 제목에 무엇이 반영되었는지 [컨벤셔널 커밋](https://www.conventionalcommits.org/ko/v1.0.0/)에 맞춰 소문자로 작성했습니다.
-  - 대문자의 경우 케밥 케이스로 작성합니다.
+- [ ] PR 제목에 무엇이 반영되었는지 [컨벤셔널 커밋](https://www.conventionalcommits.org/ko/v1.0.0/)에 맞게 작성했습니다.
   - 예시)
-    - feat: deploy argocd chart (O)
-    - feat: argo-cd 차트 배포 (O)
-    - Add ArgoCD Chart to ECR Repository (X)
+    - feat: deploy argocd chart
+    - feat: argo-cd 차트 배포
+    - add: ArgoCD Chart to ECR Repository
 - [ ] 리뷰어에 Copilot을 추가했습니다.
 - [ ] Copilot Summary에 Copilot의 Summary를 추가했습니다.
 - [ ] Updates에 변경 사항을 자세히 기록했습니다.
