@@ -1,0 +1,39 @@
+# Organization Ruleset("Require workflows to pass before merging")에 등록하여
+# 모든 저장소의 PR에서 작성자를 Assignee로 자동 지정한다.
+# 필수 체크로 동작하므로, 지정 대상이 아닌 경우에도 항상 성공으로 종료한다.
+name: Auto assign PR author
+
+on:
+  pull_request:
+    types: [opened, reopened]
+
+permissions:
+  pull-requests: write
+  issues: write
+
+jobs:
+  assign:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Assign author if no assignee
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR: ${{ github.event.pull_request.number }}
+          AUTHOR: ${{ github.event.pull_request.user.login }}
+          AUTHOR_TYPE: ${{ github.event.pull_request.user.type }}
+          ASSIGNEE_COUNT: ${{ length(github.event.pull_request.assignees) }}
+        run: |
+          if [ "$AUTHOR_TYPE" = "Bot" ]; then
+            echo "Skip: author is a bot ($AUTHOR)"
+            exit 0
+          fi
+
+          if [ "$ASSIGNEE_COUNT" != "0" ]; then
+            echo "Skip: assignee already exists"
+            exit 0
+          fi
+
+          gh api -X POST "repos/$REPO/issues/$PR/assignees" -f "assignees[]=$AUTHOR" --silent
+          echo "Assigned $AUTHOR to $REPO#$PR"
