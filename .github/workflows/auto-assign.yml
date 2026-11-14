@@ -23,8 +23,10 @@ jobs:
           PR: ${{ github.event.pull_request.number }}
           AUTHOR: ${{ github.event.pull_request.user.login }}
           AUTHOR_TYPE: ${{ github.event.pull_request.user.type }}
-          ASSIGNEE_COUNT: ${{ length(github.event.pull_request.assignees) }}
         run: |
+          # Actions 표현식에는 length()가 없으므로 이벤트 페이로드에서 jq로 계산한다.
+          ASSIGNEE_COUNT=$(jq '.pull_request.assignees | length' "$GITHUB_EVENT_PATH")
+
           if [ "$AUTHOR_TYPE" = "Bot" ]; then
             echo "Skip: author is a bot ($AUTHOR)"
             exit 0
